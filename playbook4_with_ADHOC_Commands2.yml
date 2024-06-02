@@ -1,0 +1,12 @@
+---
+- hosts: all
+  tasks:
+    - name: uninstall maven
+      shell: yum remove maven* -y
+    
+    - name: uninstall git
+      command: yum remove git* -y
+
+    - name: install docker
+      raw: yum remove docker* -y
+...
