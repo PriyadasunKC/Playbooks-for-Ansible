@@ -1,0 +1,23 @@
+# tasks
+  # install apache2
+  # start apache2
+  # add user named chathura
+
+---
+- hosts: all
+  tasks:
+    - name: install apache2
+      yum:
+        name: httpd
+        state: present
+
+    - name: start apache2
+      service:
+        name: httpd
+        state: started
+
+    - name: add user named chathura
+      user:
+        name: chathura
+        state: present
+...
