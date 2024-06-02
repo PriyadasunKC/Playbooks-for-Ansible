@@ -1,0 +1,8 @@
+---
+  - hosts: all
+    vars:
+      act: present
+    tasks:
+      - name: install {{pkgName}}
+        yum: name={{pkgName}} state={{act}}
+...
