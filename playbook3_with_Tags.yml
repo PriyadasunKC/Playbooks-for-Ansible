@@ -1,0 +1,40 @@
+# Tasks
+# 1. Install Apache2
+# 2. Start Apache2
+# 3. Add user named chathura
+# 4. Install Docker
+# 5. Start Docker
+
+---
+  - hosts: 
+    tasks:
+      - name: Install Apache2
+        yum:
+          name: httpd
+          state: present
+        tags: a
+
+      - name: Start Apache2
+        service:
+          name: httpd
+          state: started
+        tags: b
+
+      - name: Add user named chathura
+        user:
+          name: chathura
+          state: present
+        tags: c
+
+      - name: Install Docker
+        yum:
+          name: docker
+          state: present
+        tags: d
+
+      - name: Start Docker
+        service:
+          name: docker
+          state: started
+        tags: e
+      
