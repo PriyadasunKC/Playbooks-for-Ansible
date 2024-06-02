@@ -6,3 +6,6 @@
       - name: install {{pkgName}}
         yum: name={{pkgName}} state={{act}}
 ...
+
+# To execute the playbook
+# ansible-playbook playbook1.yml --extra-vars "pkgName=git"
