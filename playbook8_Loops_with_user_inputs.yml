@@ -1,0 +1,17 @@
+---
+- hosts: all
+  vars_prompt:
+    - name: "Package_Name"
+      prompt: "Enter the package name to install, comma separated"
+      private: no
+
+  tasks:
+    - name: Convert comma-separated string to list
+      set_fact:
+        packagesList: "{{ Package_Name.split(',') | map('trim') | list }}"
+
+    - name: Install packages
+      yum:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ packagesList }}"
