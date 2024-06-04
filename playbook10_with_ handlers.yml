@@ -1,0 +1,16 @@
+---
+- hosts: all
+  tasks:
+    - name: install apache2
+      yum: 
+        name: httpd
+        state: present
+      notify: 
+        - start apache2
+
+  handlers:
+    - name: start apache2
+      service:
+        name: httpd
+        state: started
+...
