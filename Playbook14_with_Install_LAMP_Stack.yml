@@ -1,0 +1,14 @@
+- hosts: all
+  tasks:
+    - name: Install Apache
+      yum:
+        name: httpd
+        state: present
+    - name: Install MySQL
+      yum:
+        name: mysql
+        state: present
+    - name: Install Python
+      yum:
+        name: python3
+        state: present

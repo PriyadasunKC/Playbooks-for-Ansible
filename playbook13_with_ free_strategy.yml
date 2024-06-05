@@ -1,0 +1,7 @@
+- hosts: dev
+  strategy: free
+  vars:
+    a: "{{lookup('file', '/root/file1.txt')}}"
+  tasks:
+    - debug:
+        msg: "User info : {{a}}"

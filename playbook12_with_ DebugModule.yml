@@ -1,0 +1,13 @@
+- hosts: all
+  tasks:
+    - name: Display system information
+      debug:
+        msg:
+          "
+          System name :  {{ansible_system}}
+          OS Family : {{ansible_os_family}}
+          Processor Cores : {{ansible_processor_cores}}
+          Name of worker Node : {{ansible_nodename}}
+          Package Manager : {{ansible_pkg_mgr}}
+          Total Memory : {{ansible_memtotal_mb}}
+          Free Memory : {{ansible_memfree_mb}} "
