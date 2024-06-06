@@ -1,0 +1,33 @@
+---
+- hosts: dev
+  tasks:
+    - name: Install Apache Server
+      yum:
+        name: httpd
+        state: present
+      
+    - name: Start Apache
+      service:
+        name: httpd
+        state: started
+
+    - name: Install MySql
+      yum:
+        name: mysql
+        state: present
+
+    - name: Install Python
+      yum:
+        name: python3
+        state: present
+
+    - name: Install git
+      yum:
+        name: git
+        state: present
+
+    - name: Get the Repo
+      git:
+        repo: https://github.com/PriyadasunKC/pwj-netflix-clone.git
+        dest: /var/www/html/
+...
