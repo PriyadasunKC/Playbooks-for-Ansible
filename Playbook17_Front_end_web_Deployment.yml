@@ -1,0 +1,31 @@
+---
+- hosts: dev
+  become: yes
+  tasks:
+    - name: Install Apache
+      yum:
+        name: httpd
+        state: present
+
+    - name: Start and enable Apache
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+
+    - name: Install Git
+      yum:
+        name: git
+        state: present
+
+    - name: Checkout Git repository
+      git:
+        repo: "https://github.com/PriyadasunKC/pwj-netflix-clone.git"
+        dest: /var/www/html/
+      notify: Restart Apache
+
+  handlers:
+    - name: Restart Apache
+      service:
+        name: httpd
+        state: restarted
